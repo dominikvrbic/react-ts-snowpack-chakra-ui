@@ -1,13 +1,21 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
 module.exports = {
   mount: {
-    public: {url: '/', static: true},
-    src: {url: '/dist'},
+    public: { url: '/', static: true },
+    src: { url: '/dist' },
   },
   plugins: [
     '@snowpack/plugin-react-refresh',
     '@snowpack/plugin-dotenv',
     '@snowpack/plugin-typescript',
+    [
+      '@snowpack/plugin-build-script',
+      {
+        cmd: 'postcss',
+        input: ['.css'],
+        output: ['.css'],
+      },
+    ],
   ],
   routes: [
     /* Enable an SPA Fallback in development: */
@@ -25,5 +33,14 @@ module.exports = {
   },
   buildOptions: {
     /* ... */
+  },
+  alias: {
+    components: './src/components',
+    pages: './src/pages',
+    assets: './src/assets',
+    types: './src/types/',
+    enums: './src/types/enums',
+    utils: './src/utils',
+    api: './src/api',
   },
 };

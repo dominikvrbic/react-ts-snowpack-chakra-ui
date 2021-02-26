@@ -23,3 +23,11 @@ Your app is ready to be deployed!
 
 Launches the application test runner.
 Run with the `--watch` flag (`npm test -- --watch`) to run in interactive watch mode.
+
+
+
+## Packages that should be installed if needed
+
+1. axios & react-query (api calls)
+2. dayjs (dates)
+3. react-use (custom hooks)
